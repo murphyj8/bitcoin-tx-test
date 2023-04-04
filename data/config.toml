@@ -1,0 +1,18 @@
+[wallet]
+private_key_for_instance = "6f39d3964987cc74fcddc20a9de6ba6e0fe47da6f3786b92e8234e3c90aacf51"
+
+[testparams]
+thread_count=0
+iteration_count=10000
+
+[service]
+network="testnet"
+
+[transactioninputs]
+tx_hash="4eb96fb35eb28095b57d840e319bc5291f673872f19447313c1eacfc436c3bbf"
+tx_pos=0
+amount=39062510
+
+[transactionoutputs]
+scriptpubkey="76a914b467faf0ef536db106d67f872c448bcaccb878c988ac"
+amount=39062510

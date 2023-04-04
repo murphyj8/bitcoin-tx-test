@@ -1,0 +1,23 @@
+[package]
+name = "bitcoin-tx-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = {version = "0.11.12", features=["json"]}
+tokio = {version ="1.0", features=["full"]}
+clap={version = "4.2.1", features=["derive"]}
+toml="0.5.8"
+serde = "1.0.136"
+serde_derive = "1.0.136"
+byteorder = "1.0"
+chrono = "0.4.24"
+#sv = { version = "0.2", path = "../../rust-sv" }
+sv = { git = "https://github.com/murphyj8/rust-sv.git"}
+#threadpool = "1.8.1"
+num_cpus = "1.15.0"
+bitcoin = "0.29.2"
+hex = "0.4.3"
+
