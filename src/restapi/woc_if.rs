@@ -1,12 +1,12 @@
 
 //use serde::{Deserialize, Serialize};
+#![allow(dead_code)]
 use serde_derive::{Deserialize, Serialize}; 
 use sv::messages::Tx;
 use sv::util::Serializable;
 use std::io::Cursor; 
-use reqwest::{Client,Response, Error};
 
-use bitcoin_tx_test::util::decode_hexstr;
+use crate::util::decode_hexstr;
 /// Structure for json serialisation for broadcast_tx
 #[derive(Debug, Serialize)]
 pub struct BroadcastTxType {

@@ -1,11 +1,13 @@
+#![allow(dead_code)]
+
 use bitcoin::util::key::{PrivateKey, PublicKey}; 
 
-use sv::transaction::sighash::{sighash, SigHashCache, SIGHASH_ALL, SIGHASH_FORKID};
+use sv::transaction::sighash::{sighash, SigHashCache};
 use sv::transaction::generate_signature;
-use sv::util::{Hash160, Hash256, Result};
+use sv::util::{Hash256, Result};
 use sv::script::Script;
-use sv::transaction::p2pkh::{create_lock_script, create_unlock_script};
-use sv::messages::{Tx, TxIn, TxOut, OutPoint, Payload};
+use sv::transaction::p2pkh::{create_unlock_script};
+use sv::messages::{Tx, TxOut, Payload};
 use sv::util::Serializable;
 
 use std::io::Cursor;
@@ -31,7 +33,7 @@ pub fn txout_as_hexstr(txout: &TxOut) -> String{
     hex::encode(&out)
 }
 
-pub fn create_tx_vin(mut tx: Tx) -> Tx{
+pub fn create_tx_vin(tx: Tx) -> Tx{
     tx
 }
 

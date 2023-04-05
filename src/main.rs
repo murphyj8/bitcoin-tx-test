@@ -4,8 +4,8 @@ use std::time::{Duration, SystemTime};
 use std::sync::mpsc;
 use average::MeanWithError;
 
-use bitcoin_tx_test::config;
-use bitcoin_tx_test::key;
+//use bitcoin_tx_test::config;
+//use bitcoin_tx_test::key;
 
 use cpu_time::ThreadTime;
 use sv::script::Script;
@@ -14,7 +14,7 @@ use sv::util::Hash256;
 use sv::transaction::sighash::{sighash, SigHashCache, SIGHASH_ALL, SIGHASH_FORKID};
 use sv::transaction::generate_signature;
 use sv::transaction::p2pkh::{create_unlock_script};
-//use threadpool::ThreadPool;
+
 use num_cpus; 
 use std::thread;
 use std::sync::Arc;
@@ -22,8 +22,10 @@ use std::sync::Arc;
 mod util;
 mod restapi;
 mod bitcoin_if;
+mod key; 
+mod config; 
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct BitcoinTxInfo{
     pub tx_pos: u32,
     pub tx_hash: String, 
@@ -135,7 +137,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let tx_info = Arc::clone(&tx_info);
             let thread_tx = tx.clone();
             fetch_handle.push(thread::spawn(move || {
-                //create_tx(tx_info);
                 thread_tx.send(create_tx(tx_info)).unwrap();
             }));
         }

@@ -1,3 +1,4 @@
+#[warn(dead_code)]
 use super::config;
 use super::util;
 use bitcoin::util::key::{PrivateKey,PublicKey}; 
@@ -5,7 +6,7 @@ use bitcoin::network::constants::Network;
 use bitcoin::secp256k1::Secp256k1;
 use bitcoin::Address;
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct KeyInfo{
     privatekey: Vec<u8>,
     network: String
@@ -37,12 +38,12 @@ impl KeyInfo{
     //}
 
     fn get_network(&self) -> Network {
-        //let net = match self.network{
-        //    "mainnet" => Network::Bitcoin,
-        //    "testnet" => Network::Testnet
-        //};
-        //net
-        Network::Testnet
+        let net = match self.network.as_str(){
+            "mainnet" => Network::Bitcoin,
+            "testnet" => Network::Testnet,
+            &_ => todo!()
+        };
+        net
     }
 
 }
