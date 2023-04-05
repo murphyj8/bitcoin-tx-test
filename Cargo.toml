@@ -20,4 +20,6 @@ sv = { git = "https://github.com/murphyj8/rust-sv.git"}
 num_cpus = "1.15.0"
 bitcoin = "0.29.2"
 hex = "0.4.3"
+cpu-time = "1.0.0"
+average = "0.13.1"
 
